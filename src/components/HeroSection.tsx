@@ -1,13 +1,12 @@
-
 import React from 'react';
 import { Button } from "@/components/ui/button";
-import { ArrowRight, ShoppingCart, Sparkles, TShirt, Phone, Image } from "lucide-react";
+import { ArrowRight, ShoppingCart, Sparkles, Shirt, Phone, Image } from "lucide-react";
 import ProductTile from './ProductTile';
 import ParticleBackground from './ParticleBackground';
 
 const HeroSection = () => {
   const categories = [
-    { name: "T-shirts", image: "https://placekitten.com/300/300", icon: <TShirt className="h-5 w-5 mr-1" /> },
+    { name: "T-shirts", image: "https://placekitten.com/300/300", icon: <Shirt className="h-5 w-5 mr-1" /> },
     { name: "Phone Cases", image: "https://placekitten.com/301/300", icon: <Phone className="h-5 w-5 mr-1" /> },
     { name: "Curtains", image: "https://placekitten.com/302/300", icon: <Image className="h-5 w-5 mr-1" /> },
     { name: "Accessories", image: "https://placekitten.com/303/300", icon: <Sparkles className="h-5 w-5 mr-1" /> },
