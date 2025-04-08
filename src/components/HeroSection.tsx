@@ -1,68 +1,95 @@
+
 import React from 'react';
 import { Button } from "@/components/ui/button";
-import { ArrowRight, ShoppingCart, Sparkles, Shirt, Phone, Image } from "lucide-react";
-import ProductTile from './ProductTile';
-import ParticleBackground from './ParticleBackground';
+import { ArrowRight, Sparkles } from "lucide-react";
+import { motion } from "framer-motion";
 
 const HeroSection = () => {
-  const categories = [
-    { name: "T-shirts", image: "https://placekitten.com/300/300", icon: <Shirt className="h-5 w-5 mr-1" /> },
-    { name: "Phone Cases", image: "https://placekitten.com/301/300", icon: <Phone className="h-5 w-5 mr-1" /> },
-    { name: "Curtains", image: "https://placekitten.com/302/300", icon: <Image className="h-5 w-5 mr-1" /> },
-    { name: "Accessories", image: "https://placekitten.com/303/300", icon: <Sparkles className="h-5 w-5 mr-1" /> },
-  ];
-
   return (
-    <div className="relative min-h-[90vh] w-full overflow-hidden">
-      {/* Particle Background */}
-      <ParticleBackground />
+    <div className="relative min-h-[90vh] bg-gradient-to-br from-purple-900 via-indigo-800 to-blue-900 overflow-hidden">
+      {/* Abstract shapes background */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute w-96 h-96 rounded-full bg-purple-500/20 blur-3xl -top-20 -right-20 animate-float"></div>
+        <div className="absolute w-96 h-96 rounded-full bg-blue-500/20 blur-3xl bottom-10 -left-20 animate-float-delayed"></div>
+        <div className="absolute w-64 h-64 rounded-full bg-indigo-600/20 blur-3xl top-1/2 left-1/3 animate-pulse"></div>
+      </div>
       
-      {/* Background Image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center opacity-60"
-        style={{
-          backgroundImage: "linear-gradient(to right, #243949 0%, #517fa4 100%)",
-          zIndex: -1
-        }}
-      />
+      {/* Grid pattern overlay */}
+      <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
       
-      {/* Content Container */}
-      <div className="container mx-auto px-4 py-12 md:py-24 flex flex-col h-full relative z-10">
-        <div className="flex flex-col lg:flex-row items-center gap-8">
-          {/* Text Content */}
-          <div className="lg:w-1/2 text-white z-10 animate-fade-in">
-            <h1 className="text-4xl md:text-6xl font-bold mb-4">SGHM.SHOP</h1>
-            <p className="text-xl md:text-2xl mb-6">Just a designer exploring new ideas!</p>
-            <p className="mb-8 text-lg">Discover t-shirts, phone cases, curtains, and more with original designs.</p>
-            
+      {/* Content container */}
+      <div className="container mx-auto px-4 py-12 md:py-24 h-full relative z-10">
+        <div className="flex flex-col items-center justify-center h-full text-center">
+          {/* Logo animation wrapper */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            className="mb-4"
+          >
+            <div className="inline-block relative">
+              <Sparkles className="absolute -top-6 -right-6 text-yellow-300 w-6 h-6 animate-sparkle" />
+              <h1 className="text-5xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-purple-200">
+                SGHM.SHOP
+              </h1>
+            </div>
+          </motion.div>
+          
+          {/* Tagline animation */}
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="text-xl md:text-2xl text-purple-100 font-light mb-8"
+          >
+            Just a designer exploring new ideas!
+          </motion.p>
+          
+          {/* Description */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.4 }}
+            className="max-w-lg mx-auto text-purple-100/80 mb-10"
+          >
+            Discover unique t-shirts, phone cases, curtains and more with 
+            original designs that inspire creativity and self-expression.
+          </motion.p>
+          
+          {/* CTA Button */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.6 }}
+            className="relative"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.98 }}
+          >
             <Button 
-              className="cta-button bg-primary hover:bg-primary/90 text-white font-bold py-4 px-8 rounded-md text-lg flex items-center gap-2"
+              className="bg-gradient-to-r from-purple-500 to-indigo-600 hover:from-purple-600 hover:to-indigo-700 text-white font-medium py-6 px-8 rounded-full text-lg flex items-center gap-2 shadow-lg shadow-purple-900/30"
               onClick={() => window.open('https://www.redbubble.com/people/Shubhikaa/shop', '_blank')}
             >
-              Shop on Redbubble <ArrowRight className="ml-2" />
+              Shop on Redbubble 
+              <ArrowRight className="ml-1 animate-bounce-horizontal" />
             </Button>
-          </div>
+          </motion.div>
           
-          {/* Product Categories */}
-          <div className="lg:w-1/2 grid grid-cols-2 gap-4 mt-8 lg:mt-0">
-            {categories.map((category, index) => (
-              <ProductTile 
-                key={index} 
-                name={category.name} 
-                image={category.image}
-                icon={category.icon}
-              />
+          {/* Product categories */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.8 }}
+            className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto"
+          >
+            {['T-shirts', 'Phone Cases', 'Curtains', 'Accessories'].map((category, index) => (
+              <div 
+                key={index}
+                className="bg-white/10 backdrop-blur-sm rounded-lg p-4 text-white text-center hover:bg-white/20 transition-all duration-300 hover:-translate-y-1 cursor-pointer"
+              >
+                <p className="font-medium">{category}</p>
+              </div>
             ))}
-          </div>
-        </div>
-
-        {/* Additional Info */}
-        <div className="mt-16 text-white text-center">
-          <div className="flex items-center justify-center gap-4 mb-4">
-            <ShoppingCart className="h-6 w-6" />
-            <p className="text-xl">Hundreds of products available on Redbubble</p>
-          </div>
-          <p className="text-sm opacity-80">All designs by SGHM.SHOP</p>
+          </motion.div>
         </div>
       </div>
     </div>
