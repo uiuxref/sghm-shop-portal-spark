@@ -45,17 +45,6 @@ const HeroSection = () => {
             Just a designer exploring new ideas!
           </motion.p>
           
-          {/* Description */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.4 }}
-            className="max-w-lg mx-auto text-purple-100/80 mb-10"
-          >
-            Discover unique t-shirts, phone cases, curtains and more with 
-            original designs that inspire creativity and self-expression.
-          </motion.p>
-          
           {/* CTA Button */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -72,23 +61,6 @@ const HeroSection = () => {
               Shop on Redbubble 
               <ArrowRight className="ml-1 animate-bounce-horizontal" />
             </Button>
-          </motion.div>
-          
-          {/* Product categories */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.8 }}
-            className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto"
-          >
-            {['T-shirts', 'Phone Cases', 'Curtains', 'Accessories'].map((category, index) => (
-              <div 
-                key={index}
-                className="bg-white/10 backdrop-blur-sm rounded-lg p-4 text-white text-center hover:bg-white/20 transition-all duration-300 hover:-translate-y-1 cursor-pointer"
-              >
-                <p className="font-medium">{category}</p>
-              </div>
-            ))}
           </motion.div>
         </div>
       </div>
