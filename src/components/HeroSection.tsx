@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import TiktokIcon from './icons/TiktokIcon';
 import SGHMLogoSVG from './icons/SGHMLogoSVG';
+import { Separator } from "./ui/separator";
 
 const HeroSection = () => {
   return (
@@ -22,7 +23,7 @@ const HeroSection = () => {
       
       {/* Content container */}
       <div className="container mx-auto px-4 h-screen">
-        <div className="h-full w-full flex flex-col md:flex-row items-center justify-center">
+        <div className="h-full w-full flex flex-col md:flex-row items-center justify-center relative">
           {/* Left side - Lottie Animation */}
           <motion.div 
             initial={{ opacity: 0, x: -50 }}
@@ -30,7 +31,7 @@ const HeroSection = () => {
             transition={{ duration: 0.7 }}
             className="w-full md:w-1/2 flex items-center justify-center mb-8 md:mb-0"
           >
-            <div className="w-full max-w-md">
+            <div className="w-full max-w-md scale-110"> {/* Increased size by 10% with scale-110 */}
               <DotLottieReact
                 src="https://lottie.host/3cf5eeb3-58e4-41d5-974f-cdcc1630077d/pNR4JBEqjI.lottie"
                 loop
@@ -39,14 +40,19 @@ const HeroSection = () => {
             </div>
           </motion.div>
           
+          {/* Vertical Separator */}
+          <div className="hidden md:block absolute h-2/3 top-1/2 left-1/2 -translate-y-1/2">
+            <Separator orientation="vertical" className="bg-white/50 h-full" />
+          </div>
+          
           {/* Right side - Content */}
-          <div className="w-full md:w-1/2 flex flex-col items-center md:items-start justify-center space-y-8">
+          <div className="w-full md:w-1/2 flex flex-col items-center md:items-start justify-center space-y-8 pl-0 md:pl-8">
             {/* Logo */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7 }}
-              className="flex justify-center w-full"
+              className="flex justify-start w-full"
             >
               <SGHMLogoSVG />
             </motion.div>
