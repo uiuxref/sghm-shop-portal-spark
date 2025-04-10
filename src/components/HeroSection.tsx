@@ -1,8 +1,9 @@
 
 import React from 'react';
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Facebook, Instagram, Youtube, MessageSquare, Sparkles } from "lucide-react";
+import { ArrowRight, Facebook, Instagram, Youtube, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
+import TiktokIcon from './icons/TiktokIcon';
 
 const HeroSection = () => {
   return (
@@ -71,13 +72,16 @@ const HeroSection = () => {
             className="mt-12 flex items-center justify-center gap-6"
           >
             {[
-              { icon: <Instagram size={24} />, name: "Instagram" },
-              { icon: <Youtube size={24} />, name: "Youtube" },
-              { icon: <Facebook size={24} />, name: "Facebook" },
-              { icon: <MessageSquare size={24} />, name: "TikTok" }
+              { icon: <Instagram size={24} />, name: "Instagram", url: "#" },
+              { icon: <Youtube size={24} />, name: "Youtube", url: "https://youtube.com/@sghmshop?si=_-oW3GhHiZ-3Ntbr" },
+              { icon: <Facebook size={24} />, name: "Facebook", url: "https://www.facebook.com/share/1QQnFKz7gf/" },
+              { icon: <TiktokIcon size={24} />, name: "TikTok", url: "https://www.tiktok.com/@sghm.shop" }
             ].map((social, index) => (
-              <motion.div
+              <motion.a
                 key={social.name}
+                href={social.url}
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.2 }}
                 whileTap={{ scale: 0.95 }}
                 className="bg-white/10 hover:bg-white/20 p-3 rounded-full cursor-pointer transition-colors duration-300 backdrop-blur-sm"
@@ -87,7 +91,7 @@ const HeroSection = () => {
                 transition={{ delay: 0.8 + (index * 0.1) }}
               >
                 <span className="text-white">{social.icon}</span>
-              </motion.div>
+              </motion.a>
             ))}
           </motion.div>
         </div>
