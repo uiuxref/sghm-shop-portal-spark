@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Facebook, Instagram, Youtube, Tiktok, Sparkles } from "lucide-react";
+import { ArrowRight, Facebook, Instagram, Youtube, MessageSquare, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 
 const HeroSection = () => {
@@ -74,7 +74,7 @@ const HeroSection = () => {
               { icon: <Instagram size={24} />, name: "Instagram" },
               { icon: <Youtube size={24} />, name: "Youtube" },
               { icon: <Facebook size={24} />, name: "Facebook" },
-              { icon: <Tiktok size={24} />, name: "TikTok" }
+              { icon: <MessageSquare size={24} />, name: "TikTok" }
             ].map((social, index) => (
               <motion.div
                 key={social.name}
