@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, Facebook, Instagram, Youtube, Tiktok, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 
 const HeroSection = () => {
@@ -61,6 +61,34 @@ const HeroSection = () => {
               Shop on Redbubble 
               <ArrowRight className="ml-1 animate-bounce-horizontal" />
             </Button>
+          </motion.div>
+          
+          {/* Social Media Icons */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.8 }}
+            className="mt-12 flex items-center justify-center gap-6"
+          >
+            {[
+              { icon: <Instagram size={24} />, name: "Instagram" },
+              { icon: <Youtube size={24} />, name: "Youtube" },
+              { icon: <Facebook size={24} />, name: "Facebook" },
+              { icon: <Tiktok size={24} />, name: "TikTok" }
+            ].map((social, index) => (
+              <motion.div
+                key={social.name}
+                whileHover={{ scale: 1.2 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-white/10 hover:bg-white/20 p-3 rounded-full cursor-pointer transition-colors duration-300 backdrop-blur-sm"
+                title={social.name}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.8 + (index * 0.1) }}
+              >
+                <span className="text-white">{social.icon}</span>
+              </motion.div>
+            ))}
           </motion.div>
         </div>
       </div>
