@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 const HeroSection = () => {
   return (
-    <div className="relative min-h-[90vh] bg-gradient-to-br from-purple-900 via-indigo-800 to-blue-900 overflow-hidden">
+    <div className="relative min-h-screen w-full bg-gradient-to-br from-purple-900 via-indigo-800 to-blue-900 overflow-hidden">
       {/* Abstract shapes background */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute w-96 h-96 rounded-full bg-purple-500/20 blur-3xl -top-20 -right-20 animate-float"></div>
@@ -18,8 +18,8 @@ const HeroSection = () => {
       <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
       
       {/* Content container */}
-      <div className="container mx-auto px-4 py-12 md:py-24 h-full relative z-10">
-        <div className="flex flex-col items-center justify-center h-full text-center">
+      <div className="container mx-auto px-4 py-12 md:py-24 flex items-center justify-center h-screen">
+        <div className="flex flex-col items-center justify-center text-center">
           {/* Logo animation wrapper */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
