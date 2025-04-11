@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useRef } from 'react';
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Instagram, Youtube, Facebook } from "lucide-react";
 import { motion } from "framer-motion";
@@ -9,6 +9,8 @@ import SGHMLogoSVG from './icons/SGHMLogoSVG';
 import { Separator } from "./ui/separator";
 
 const HeroSection = () => {
+  const rightSectionRef = useRef<HTMLDivElement>(null);
+
   return (
     <div className="relative min-h-screen w-full bg-gradient-to-br from-purple-900 via-indigo-800 to-blue-900 overflow-hidden">
       {/* Abstract shapes background */}
@@ -31,7 +33,7 @@ const HeroSection = () => {
             transition={{ duration: 0.7 }}
             className="w-full md:w-1/2 flex items-center justify-center mb-8 md:mb-0"
           >
-            <div className="w-full max-w-md scale-120"> {/* Increased size by 20% with scale-120 */}
+            <div className="w-full max-w-md scale-140"> {/* Increased size by 40% with scale-140 */}
               <DotLottieReact
                 src="https://lottie.host/3cf5eeb3-58e4-41d5-974f-cdcc1630077d/pNR4JBEqjI.lottie"
                 loop
@@ -41,12 +43,12 @@ const HeroSection = () => {
           </motion.div>
           
           {/* Vertical Separator */}
-          <div className="hidden md:block absolute h-full top-0 left-1/2">
-            <Separator orientation="vertical" className="bg-white/50 h-full" />
+          <div className="hidden md:flex h-auto self-center">
+            <Separator orientation="vertical" className="bg-white/30 h-full" />
           </div>
           
           {/* Right side - Content */}
-          <div className="w-full md:w-1/2 flex flex-col items-center md:items-start justify-center space-y-8 pl-0 md:pl-14"> {/* Increased padding from pl-8 to pl-14 (56px) */}
+          <div ref={rightSectionRef} className="w-full md:w-1/2 flex flex-col items-center md:items-start justify-center space-y-8 pl-0 md:pl-14">
             {/* Logo */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}

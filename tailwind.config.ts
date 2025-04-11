@@ -21,6 +21,7 @@ export default {
 		extend: {
 			scale: {
 				'120': '1.20',
+				'140': '1.40',
 			},
 			colors: {
 				border: 'hsl(var(--border))',
